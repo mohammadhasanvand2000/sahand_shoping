@@ -1,0 +1,80 @@
+{% extends "product/index.html" %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Lonely Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i&subset=cyrillic" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Lonely
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<body>
+  
+    {% block product %}
+
+    
+    {% for pro in product_list  %}
+    
+    <div class="mt-5 swiper-slide">
+      <div class="testimonial-item">
+        <div dir="rtl"class="col shadow icon-box  card " style="width: 18rem;">
+          <a href="{% url 'productsd' pro.id %}" target="blank">
+          <img src={{pro.image.url}} class="shadow card-img-top me-2 mt-5 border rounded" style="width:250px;height:250px;"/>
+          <div class="card-body">
+              </a><h3 style="color: rgb(5, 5, 8);" class="card-title">{{ pro.title }}</h3>
+              <div class="row mt-5">
+                <div class="col-9">
+                 <h3 id="price"   style="color: rgb(5, 5, 8);" class="card-title">{{ pro.price }} تومان </h3>
+                </div>
+                <a href="{% url 'buy' pro.id %}" ><button class="btn shadow-danger" style="background-color :rgb(231, 15, 44)"><span style=" width:100px;height:100px;" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><h3 class="text-center"> خرید</h3></button></a>
+              </div>
+           
+          </div>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+    
+      
+   
+
+    {% endfor %}
+    
+    
+   
+
+    {% endblock %}
+   
+    </script>
+</body>
